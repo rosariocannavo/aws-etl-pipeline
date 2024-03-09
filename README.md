@@ -1,5 +1,5 @@
-# aws-etl-pipeline
-The goal of this pipeline is to collect temperatures from sensorsdistributed in an outdoor environment. The messages are provided in JSON format and follow the following pattern: 
+# AWS ETL PIPELINE
+The goal of this pipeline is to collect temperatures from sensors distributed in an outdoor environment. The messages are provided in JSON format and follow the following pattern: 
 ```
 {"timestamp": 1682331404, "sensor-id": 1, "temperature": 21.1}
 ```
@@ -8,9 +8,9 @@ The system filters out temperature values that are outside the range bounded by 
 ## System Architecture
 
 <div align="center">
-
   <img src="https://drive.google.com/uc?export=view&id=1AHq5AD9ehn0Ay9vNDMeTkAfpsfAm5Ibf" alt="Alt Text">
 </div>
+
 
 The adopted ETL system leverages **AWS Kinesis** as the entry point for real-time data acquisition. The data is then processed through a Java **Flink** Cluster running on top of **AWS Managed Apache Flink**, enabling real-time transformations and application of business logic. The results are subsequently stored inside an **AWS S3** bucket in **Parquet** format for durable retention and easy access. This managed solution provides dynamic scalability and simplifies infrastructure management. All the infrastructure is seamlessly orchestrated and managed with **AWS CDK**, simplifying the deployment and maintenance of cloud resources.
 
@@ -51,9 +51,54 @@ Apache Flink and Apache Spark are powerful big data processing frameworks, each 
   - *Flink:* Showcases lower end-to-end latency in stream processing scenarios.
   - *Spark:* Introduces slightly higher latency due to its micro-batch processing model.
 
-### Additional Notes
+
+
+## System Requirements
+
+To set up and run this project, ensure that the following prerequisites are installed on your machine:
+
+- [Node.js](https://nodejs.org/): Version > 18.00
+- [npm](https://www.npmjs.com/): Node.js package manager 
+- [Python](https://www.python.org/): Version > 3.0
+- [AWS CLI](https://aws.amazon.com/cli/): AWS Command Line Interface
+- [AWS CDK](https://aws.amazon.com/cdk/): Cloud Development Kit
+- [Java](https://www.java.com/): Version > 11.0
+- [Apache Maven](https://maven.apache.org/): A software project management and comprehension tool
+
+Once installed, you can proceed with setting up and running the project.
+
+## Run the Project
+
+* Build the Apache Flink JAR by running the following Maven command inside the Flink directory:
+  
+   ```bash
+   mvn clean package
+  ```
+
+* Place the generated JAR file inside the cdk-config/code-assets directory.
+
+
+* Make sure you are logged in through your AWS CLI to your Amazon account. 
+
+
+* Run the following command to bootstrap your AWS CDK environment inside the CDKConfig directory:
+  ```bash
+  cdk bootstrap
+  ```
+
+* Deploy the infrastructure by running the following CDK command:
+  ```bash
+  cdk deploy
+  ```
+
+* To tear down the infrastructure, run the following CDK command:
+  ```bash
+  cdk destroy
+  ```
+### Important Notes
 
 Please note that the project is currently only a preliminary prototype, and for this reason, it is not intended for use in a real production environment. In fact, the security policy aspect is not yet addressed, and it has not been tested in a real-world scenario.
+
 
 
 
