@@ -15,7 +15,6 @@ import java.time.Duration;
 import java.util.Map;
 import java.util.Properties;
 
-import org.apache.flink.api.common.RuntimeExecutionMode;
 import org.apache.flink.api.common.eventtime.WatermarkStrategy;
 import org.apache.flink.api.common.serialization.DeserializationSchema;
 
