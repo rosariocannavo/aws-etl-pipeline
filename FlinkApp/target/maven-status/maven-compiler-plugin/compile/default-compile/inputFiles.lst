@@ -1,0 +1,7 @@
+/home/rosario/Scrivania/FlinkApp/src/main/java/com/example/flink/SensorDataDeserializationSchema.java
+/home/rosario/Scrivania/FlinkApp/src/main/java/com/example/flink/SensorData.java
+/home/rosario/Scrivania/FlinkApp/src/main/java/com/example/flink/ResultData.java
+/home/rosario/Scrivania/FlinkApp/src/main/java/com/example/flink/OutlierFilter.java
+/home/rosario/Scrivania/FlinkApp/src/main/java/com/example/flink/App.java
+/home/rosario/Scrivania/FlinkApp/src/main/java/com/example/flink/AverageAggregate.java
+/home/rosario/Scrivania/FlinkApp/src/main/java/com/example/flink/SensorDataDateBucketAssigner.java

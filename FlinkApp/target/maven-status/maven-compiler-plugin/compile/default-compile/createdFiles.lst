@@ -1,0 +1,7 @@
+com/example/flink/AverageAggregate.class
+com/example/flink/OutlierFilter.class
+com/example/flink/SensorDataDeserializationSchema.class
+com/example/flink/SensorDataDateBucketAssigner.class
+com/example/flink/App.class
+com/example/flink/ResultData.class
+com/example/flink/SensorData.class
