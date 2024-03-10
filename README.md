@@ -47,7 +47,22 @@ Apache Flink and Apache Spark are powerful big data processing frameworks, each 
   - *Flink:* Showcases lower end-to-end latency in stream processing scenarios.
   - *Spark:* Introduces slightly higher latency due to its micro-batch processing model.
 
-
+## Project Structure
+The main components of the repository are organized as follows:
+ * **cdk-config**:
+   - contains the code for the CDK project organized as follows:
+     * **cdk_config**:
+       - etl_stack.py: is the configuration file that allows you to create the infrastructure;
+       - code-asset: is the folder that should contain the jar file of the flink application;
+     * **app.py**: is the main of the cdk project 
+ * **DataSourceSimulator**:
+   - generateData.py: this script sends data to kinesis simulating the streaming;
+   - data.json: contains sample data;
+ * **FlinkApp**:
+   - contains the flink application code organized as follows:
+      * **/flink**: this directory contains the java classes of the project. The **App.java** class contains the main and the main logic;
+      * **/target**: this class contains the compilation results and jars to run on aws;
+      * **pom.xml**: the maven configuration file containing all the necessary dependencies;
 
 ## System Requirements
 
@@ -64,11 +79,12 @@ To set up and run this project, ensure that the following prerequisites are inst
 Once installed, you can proceed with setting up and running the project.
 
 ## Run the Project
-
-* Clone the project
+:warning: Before running the project make sure you enter the required credentials in the flink and cdk configuration file. Remember that this is a toy example and this practice is not safe, never share code in which your secrets are present.
+:warning:
+* Clone the project:
 
   ```bash
-    git clone https://github.com/rosariocannavo/aws-etl-pipeline
+  git clone https://github.com/rosariocannavo/aws-etl-pipeline
   ```
 
 * Build the Apache Flink JAR by running the following Maven command inside the *FlinkApp* directory:
